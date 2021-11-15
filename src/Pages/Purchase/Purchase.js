@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import  {Grid, Box,Typography, Container, TextField, Button } from '@mui/material';
 import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import Footer from '../Shared/Footer/Footer';
+import Navigation from '../Shared/Navigation/Navigation';
 
 
 const Purchase = () => {
@@ -49,23 +51,43 @@ const Purchase = () => {
     }
 
     return (
-        <Container>
+        <div>
+            <Navigation></Navigation>
+            <Container sx={{marginBottom: '300px'}}>
             <Box sx={{ flexGrow: 1, marginTop: '100px' }}>
                 <Grid container spacing={2}>
                     <Grid item xs={8}>
                         <img src={car.img} alt="" />
                     </Grid>
                 <Grid item xs={4}>
-                    <Typography variant = "h2">
+                    <Typography sx={{marginBottom: 3}} variant = "h2">
                         {car?.name}
                     </Typography>
-                    <Typography variant = "h5">
+                    <Typography sx={{marginBottom: 3}} variant = "h5">
                         Retail: {car?.price}
                     </Typography>
-                    <Typography variant = "h3">
-                        Max Power: {car?.desc?.fuel}
+                    <Typography sx={{marginBottom: 3}} variant = "h5">
+                        Max Power: {car?.desc?.power}
+                    </Typography>
+                    <Typography sx={{marginBottom: 3}} variant = "h5">
+                        Fuel: {car?.desc?.fuel}
+                    </Typography>
+                    <Typography sx={{marginBottom: 3}} variant = "h5">
+                        Number of People: {car?.desc?.capacity}
+                    </Typography>
+                    <Typography sx={{marginBottom: 3}} variant = "h5">
+                        Max Speed: {car?.desc?.speed} km/h
+                    </Typography>
+                    <Typography sx={{marginBottom: 3}} variant = "h5">
+                        Engine: {car?.desc?.engine}
+                    </Typography>
+                    <Typography sx={{marginBottom: 3}} variant = "h5">
+                        Transmission: {car?.desc?.transmission}
                     </Typography>
                     <form>
+                        <Typography variant="h4">
+                         Please Enter your Details
+                        </Typography>
                         <TextField
                             sx={{marginTop:3,width:'90%'}}
                             id="outlined-size-small"
@@ -104,6 +126,8 @@ const Purchase = () => {
                 </Grid>
             </Box>
         </Container>
+        <Footer></Footer>
+        </div>
     );
 };
 

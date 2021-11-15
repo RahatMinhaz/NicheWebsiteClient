@@ -14,20 +14,26 @@ const ShowCars = (props) => {
                       alt="cars"
                   />
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            {desc.transmission}
-        </Typography>
+        
         <Typography variant="h5" component="div">
           {name}
         </Typography>
         <Typography variant="body2">
           {price} Taka
-          
+        </Typography>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+            {desc.transmission}
+        </Typography>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+        Max Power: {desc.power}
+        </Typography>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+        Number of Seats: {desc.capacity}
         </Typography>
       </CardContent>
       <CardActions>
           <Link to={`/purchase/${_id}`}>
-              <Button sx={{textDecoration: 'none'}} variant="contained">Purchase this Item</Button>
+              <Button sx={{textDecoration: 'none'}} variant="contained">Purchase this Car</Button>
           </Link>
           </CardActions>
     </Card>

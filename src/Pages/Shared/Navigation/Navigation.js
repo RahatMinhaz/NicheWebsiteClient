@@ -27,25 +27,28 @@ const Navigation = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Valley Road Motors
                     </Typography>
+                    <NavLink to='/home'>
+                    <Button sx={{color: 'white'}} color="inherit">Home</Button>
+                    </NavLink>
                     <NavLink to ="/cars">
-                    <Button color="inherit">Showroom</Button>
+                    <Button sx={{color: 'white'}} color="inherit">Showroom</Button>
                     </NavLink>
                     {
                         user?.email?
                         <Box>
                             <NavLink to ="/dashboard">
-                    <Button color="inherit">Dashboard</Button>
+                    <Button sx={{color: 'white'}} color="inherit">Dashboard</Button>
                     </NavLink>
                             <Button onClick={logout} color="inherit">Logout</Button>
                         </Box>
                         
                         :
                         <NavLink to ="/login">
-                    <Button color="inherit">Login</Button>
+                    <Button sx={{color: 'white'}} color="inherit">Login</Button>
                     </NavLink>
                     }
                     <NavLink to ="/registration">
-                    <Button color="inherit">Register</Button>
+                    <Button sx={{color: 'white'}} color="inherit">Register</Button>
                     </NavLink>
                 </Toolbar>
             </AppBar>

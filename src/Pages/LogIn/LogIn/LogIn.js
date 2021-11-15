@@ -2,6 +2,8 @@ import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography
 import React, { useState } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import Footer from '../../Shared/Footer/Footer';
+import Navigation from '../../Shared/Navigation/Navigation';
 
 const LogIn = () => {
     const [loginData, setLoginData] = useState({});
@@ -25,12 +27,14 @@ const LogIn = () => {
     }
     return (
         <div>
-            <Container>
+            <Navigation></Navigation>
+            <Container sx={{marginBottom: '500px'}}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={12}>
                         <Typography variant="h3" sx={{color: "primary.main", fontWeight: 500, mt: 4}}  gutterBottom>LogIn Here</Typography>
                         {!loading && <form onSubmit={handleLogIn}>
                         <TextField
+                        // User Log in
                             sx={{ width: '50%', m: 1 }}
                             id="standard-basic"
                             label="Your Email"
@@ -46,6 +50,7 @@ const LogIn = () => {
                                 New User? 
                             </Typography>
                             <Link style={{textDecoration: 'none', fontSize: '30px'}} to="/registration">Register Here</Link>
+                            {/* confirmation */}
                             {loading && <CircularProgress />}
                         {user?.email && <Alert severity="success">Logged in Successfully!</Alert>}
                         {authError && <Alert severity="error">{authError}</Alert>}
@@ -55,6 +60,7 @@ const LogIn = () => {
                     </Grid>
                 </Grid>
             </Container>
+            <Footer></Footer>
         </div>
     );
 };

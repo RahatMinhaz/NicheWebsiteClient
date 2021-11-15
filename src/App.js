@@ -8,8 +8,9 @@ import PrivateRoute from './Pages/LogIn/PrivateRoute/PrivateRoute';
 import Showroom from './Pages/Showroom/Showroom';
 import Purchase from './Pages/Purchase/Purchase';
 import Dashboard from './Pages/Dashboard/Dashboard';
-import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
-import Pay from './Pages/Dashboard/Pay/Pay';
+import NotFound from './Pages/NotFound/NotFound';
+
+
 
 function App() {
   return (
@@ -23,9 +24,9 @@ function App() {
             <Route path = "/home">
               <Home></Home>
             </Route>
-            <PrivateRoute path = "/cars">
+            <Route path = "/cars">
               <Showroom></Showroom>
-            </PrivateRoute>
+            </Route>
             <PrivateRoute path="/purchase/:offerId">
               <Purchase></Purchase>
             </PrivateRoute>
@@ -38,12 +39,9 @@ function App() {
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
             </PrivateRoute>
-            <PrivateRoute path="/orders">
-              <MyOrders></MyOrders>
-            </PrivateRoute>
-            <PrivateRoute path="/payment">
-              <Pay></Pay>
-            </PrivateRoute>
+            <Route path = "*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
         </BrowserRouter>
       </AuthProvider>

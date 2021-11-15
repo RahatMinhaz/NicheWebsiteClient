@@ -2,6 +2,8 @@ import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import Footer from '../../Shared/Footer/Footer';
+import Navigation from '../../Shared/Navigation/Navigation';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
@@ -23,12 +25,15 @@ const Register = () => {
         e.preventDefault();
     }
     return (
-        <Container>
+        <div>
+            <Navigation></Navigation>
+            <Container sx={{marginBottom: '400px'}}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={12}>
                         <Typography variant="h3" sx={{color: "primary.main", fontWeight: 500, mt: 4}}  gutterBottom>Register Here</Typography>
                         {!loading && <form onSubmit={handleLogIn}>
                         <TextField
+                        // User Registration
                             sx={{ width: '50%', m: 1 }}
                             id="standard-basic"
                             label="Your Name"
@@ -55,12 +60,15 @@ const Register = () => {
                             </Typography>
                             <Link style={{textDecoration: 'none', fontSize: '30px'}} to="/login">LogIn Here</Link>
                         </form>}
+                        {/* Getting confirmation of user registaring */}
                         {loading && <CircularProgress />}
                         {user?.email && <Alert severity="success">Registered Successfully!</Alert>}
                         {authError && <Alert severity="error">{authError}</Alert>}
                     </Grid>
                 </Grid>
             </Container>
+            <Footer></Footer>
+        </div>
     );
 };
 

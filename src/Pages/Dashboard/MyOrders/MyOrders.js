@@ -7,7 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Dashboard from '../Dashboard';
+
 
 const MyOrders = () => {
     const {user} = useAuth();
@@ -21,35 +21,36 @@ const MyOrders = () => {
     },[])
     return (
         <div>
-            <Dashboard></Dashboard>
             <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="Orderstable">
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Ordered Cars</TableCell>
-            <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Present Address</TableCell>
-            <TableCell align="right">Phone Number</TableCell>
-          </TableRow>
-        </TableHead>
+        <Table sx={{ minWidth: 650 }} aria-label="Orderstable">
+            <TableHead>
+                <TableRow>
+                    {/* User's Info */}
+                    <TableCell>Name</TableCell>
+                    <TableCell align="right">Ordered Cars</TableCell>
+                    <TableCell align="right">Email</TableCell>
+                    <TableCell align="right">Present Address</TableCell>
+                    <TableCell align="right">Phone Number</TableCell>
+                </TableRow>
+            </TableHead>
         <TableBody>
-          {orders.map((row) => (
+            {orders.map((row) => (
             <TableRow
-              key={row._id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                key={row._id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
-                {row.customerName}
-              </TableCell>
-              <TableCell align="right">{row.carName}</TableCell>
-              <TableCell align="right">{row.email}</TableCell>
-              <TableCell align="right">{row.customerAddress}</TableCell>
-              <TableCell align="right">{row.phone}</TableCell>
+                <TableCell component="th" scope="row">
+                    {row.customerName}
+                </TableCell>
+                {/* The car that user ordered */}
+                <TableCell align="right">{row.carName}</TableCell>
+                <TableCell align="right">{row.email}</TableCell>
+                <TableCell align="right">{row.customerAddress}</TableCell>
+                <TableCell align="right">{row.phone}</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+            ))}
+            </TableBody>
+        </Table>
     </TableContainer>
         </div>
     );

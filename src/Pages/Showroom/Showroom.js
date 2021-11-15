@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Route } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import ShowCars from '../../Pages/ShowCars/ShowCars';
+import Footer from '../Shared/Footer/Footer';
 import Navigation from '../Shared/Navigation/Navigation';
 
 const Showroom = () => {
@@ -17,11 +18,8 @@ const Showroom = () => {
         <div>
             <Navigation></Navigation>
             <Container>
-               <Typography sx={{fontweight: 500, m:2, color: 'primary.main'}} variant="h6" component="div">
-                  Some of our cars
-                  </Typography>
                <Typography sx={{fontweight: 600, m:3, color: 'primary.main'}} variant="h4" component="div">
-                  Some of the New Collections
+                  The Whole Showroom is Here
                   </Typography>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                   {
@@ -32,6 +30,7 @@ const Showroom = () => {
                   }
             </Grid>
             </Container>
+            <Footer></Footer>
         </div>
     );
 };
